@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Enviance Rest API Demo</title>
+</h:head>
+<h:body>
+
+	<p:dataTable id="usersTable" value="#{userPageBean.allUsers}"
+		var="user" scrollable="true" scrollHeight="200" rowKey="#{user.id}"
+		selectionMode="single" selection="#{userPageBean.selectedUser}">
+		<f:facet name="header">
+			<h:outputText value="All Users" />
+		</f:facet>
+		<p:column headerText="Id">
+			<h:outputText value="#{user.id}" />
+		</p:column>
+		<p:column headerText="Name">
+			<h:outputText value="#{user.name} #{user.surname}" />
+		</p:column>
+		<p:column headerText="Phone">
+			<h:outputText value="#{user.phone}" />
+		</p:column>
+		<p:column headerText="Address">
+			<h:outputText value="#{user.address}" />
+		</p:column>
+		<p:column headerText="Occupation">
+			<h:outputText value="#{user.occupation}" />
+		</p:column>
+	</p:dataTable>
+
+	<p:commandButton value="Refresh" action="#{userPageBean.updateUsers}"
+		update="usersTable" />
+</h:body>
+</html>

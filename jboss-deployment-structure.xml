@@ -1,0 +1,8 @@
+<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.1">
+    <deployment>
+        <dependencies>
+         <module name="com.oracle.ojdbc7" slot="main" export="true"/>
+         <module name="org.jboss.ironjacamar.jdbcadapters" slot="main"/>
+        </dependencies>
+    </deployment>
+</jboss-deployment-structure>
